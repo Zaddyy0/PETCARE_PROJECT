@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawsitively Perfect - Pet Care</title>
+    
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts and Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to your custom stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Main Application Container -->
+    <div id="app" class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!-- ===================== LOGIN PAGE ====================== -->
+        <!-- ======================================================= -->
+        <div id="login-page" class="page active">
+            <div class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('https://wallpapershome.com/images/wallpapers/friends-2560x1440-cat-dog-puppy-kitty-green-grass-sunny-day-cute-pet-721.jpg');">
+                <div class="w-full max-w-md p-8 space-y-6 bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl shadow-2xl">
+                    <div class="text-center">
+                        <i class="fas fa-paw text-4xl text-blue-600"></i>
+                        <h1 class="text-3xl font-bold text-gray-900 mt-2">Welcome to Pawsitively Perfect</h1>
+                        <p class="text-gray-600 mt-1">Your one-stop pet care companion.</p>
+                    </div>
+
+                    <!-- Login/Signup Form Container -->
+                    <div id="form-container">
+                        <!-- Login Form -->
+                        <form id="login-form" class="space-y-6">
+                            <div>
+                                <label for="login-email" class="text-sm font-medium text-gray-700">Email</label>
+                                <input id="login-email" type="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="you@example.com">
+                            </div>
+                            <div>
+                                <label for="login-password" class="text-sm font-medium text-gray-700">Password</label>
+                                <input id="login-password" type="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••">
+                            </div>
+                            <button type="submit" class="w-full py-3 px-4 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105">Log In</button>
+                            <p class="text-center text-sm text-gray-600">
+                                Don't have an account? <a href="#" id="show-signup" class="font-medium text-blue-600 hover:underline">Sign up</a>
+                            </p>
+                        </form>
+
+                        <!-- Signup Form -->
+                        <form id="signup-form" class="hidden space-y-4">
+                            <div>
+                                <label for="signup-name" class="text-sm font-medium text-gray-700">Full Name</label>
+                                <input id="signup-name" type="text" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Piyush Bhandari">
+                            </div>
+                            <div>
+                                <label for="signup-email" class="text-sm font-medium text-gray-700">Email</label>
+                                <input id="signup-email" type="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="you@example.com">
+                            </div>
+                            <div>
+                                <label for="signup-password" class="text-sm font-medium text-gray-700">Password</label>
+                                <input id="signup-password" type="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Create a password">
+                            </div>
+                            <button type="submit" class="w-full py-3 px-4 text-white font-semibold bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-105">Create Account</button>
+                            <p class="text-center text-sm text-gray-600">
+                                Already have an account? <a href="#" id="show-login" class="font-medium text-blue-600 hover:underline">Log in</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================= -->
+        <!-- =================== DASHBOARD PAGE ==================== -->
+        <!-- ======================================================= -->
+        <div id="dashboard-page" class="page">
+            <!-- Header -->
+            <header class="bg-white shadow-md sticky top-0 z-10">
+                <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-paw text-2xl text-blue-600"></i>
+                        <span class="text-xl font-bold text-gray-800">Pawsitively Perfect</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span id="user-greeting" class="text-gray-700"></span>
+                        <button id="logout-btn" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </button>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Main Content -->
+            <main class="container mx-auto px-6 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800">Your Pet Dashboard</h2>
+                    <button id="add-pet-btn" class="flex items-center px-6 py-3 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-plus mr-2"></i> Add New Pet
+                    </button>
+                </div>
+
+                <!-- Pet Profiles Grid -->
+                <div id="pet-profiles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Pet cards will be dynamically inserted here by script.js -->
+                </div>
+                
+                <!-- Placeholder for when no pets are added -->
+                <div id="no-pets-placeholder" class="hidden text-center py-16 px-6 bg-white rounded-lg shadow-md">
+                     <img src="https://placehold.co/150x150/DBEAFE/3B82F6?text=Add+A+Pet!" class="mx-auto rounded-full mb-4" alt="A cute pet icon">
+                    <h3 class="text-2xl font-semibold text-gray-700">No pets yet!</h3>
+                    <p class="text-gray-500 mt-2">Click "Add New Pet" to create a profile for your furry friend.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- ================== ADD/EDIT MODALS ==================== -->
+    <!-- ======================================================= -->
+    <!-- Add Pet Modal -->
+    <div id="add-pet-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg mx-4 modal-content" id="add-modal-content">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Create Pet Profile</h2>
+            <form id="pet-profile-form">
+                <div class="space-y-4">
+                    <div>
+                        <label for="pet-name" class="block text-sm font-medium text-gray-700">Pet's Name</label>
+                        <input type="text" id="pet-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Buddy">
+                    </div>
+                    <div>
+                        <label for="pet-breed" class="block text-sm font-medium text-gray-700">Breed</label>
+                        <input type="text" id="pet-breed" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Golden Retriever">
+                    </div>
+                    <div>
+                        <label for="pet-age" class="block text-sm font-medium text-gray-700">Age (in years)</label>
+                        <input type="number" id="pet-age" required min="0" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., 3">
+                    </div>
+                    <div>
+                        <label for="pet-photo" class="block text-sm font-medium text-gray-700">Photo URL (Optional)</label>
+                        <input type="url" id="pet-photo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="https://example.com/your-pet.jpg">
+                        <p class="text-xs text-gray-500 mt-1">You can add your own image link here. If left blank, a default image will be used.</p>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-end space-x-4">
+                    <button type="button" class="cancel-btn px-6 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none">Cancel</button>
+                    <button type="submit" class="px-6 py-2 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none">Save Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Edit Pet Modal -->
+    <div id="edit-pet-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg mx-4 modal-content" id="edit-modal-content">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Pet Profile</h2>
+            <form id="edit-pet-form">
+                <input type="hidden" id="edit-pet-id">
+                <div class="space-y-4">
+                    <div>
+                        <label for="edit-pet-name" class="block text-sm font-medium text-gray-700">Pet's Name</label>
+                        <input type="text" id="edit-pet-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="edit-pet-breed" class="block text-sm font-medium text-gray-700">Breed</label>
+                        <input type="text" id="edit-pet-breed" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="edit-pet-age" class="block text-sm font-medium text-gray-700">Age (in years)</label>
+                        <input type="number" id="edit-pet-age" required min="0" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="edit-pet-photo" class="block text-sm font-medium text-gray-700">Photo URL (Optional)</label>
+                        <input type="url" id="edit-pet-photo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-end space-x-4">
+                    <button type="button" class="cancel-btn px-6 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none">Cancel</button>
+                    <button type="submit" class="px-6 py-2 text-white font-semibold bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none">Update Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="./app.js"></script>
+</body>
+</html>

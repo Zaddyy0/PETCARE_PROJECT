@@ -1,0 +1,70 @@
+/* This is our custom stylesheet. It works together with Tailwind CSS 
+  to create the final look of our website. We use this file for things 
+  that are tricky to do with Tailwind alone, like animations.
+*/
+
+/* We're using the 'Inter' font for a clean, modern look. 
+   This rule applies it to the entire page. */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* This is the base style for our "pages" (the login screen and the dashboard).
+   By default, we hide them and prepare them for a nice fade-in animation. */
+.page {
+    display: none; /* Hide the page initially */
+    animation: fadeIn 0.5s ease-in-out; /* Apply our custom animation */
+}
+
+/* When a page is meant to be visible, we give it the 'active' class,
+   which changes its display from 'none' to 'block'. */
+.page.active {
+    display: block;
+}
+
+/* This defines our fade-in animation. We're telling the browser to transition
+   the element from being invisible and slightly lower, to fully visible and in place. */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Here, we're styling the browser's scrollbar to make it look a bit sleeker
+   and more consistent with our site's design. */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* The background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* The draggable scrolling handle */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Make the handle a bit darker when you hover over it */
+}
+
+/* These styles control the animation for our pop-up forms (modals).
+   By default, the modal is slightly scaled down and invisible. */
+.modal-content {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+/* When the modal gets the 'active' class, it smoothly scales up to full size
+   and fades in, creating a pleasant "pop-up" effect. */
+.modal-content.active {
+    transform: scale(1);
+    opacity: 1;
+}
