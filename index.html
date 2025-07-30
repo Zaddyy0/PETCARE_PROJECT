@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pawsitively Perfect - Pet Care</title>
-    
-    <!-- Tailwind CSS for rapid UI development -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts and Font Awesome for icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Link to your custom stylesheet -->
+    <!-- Link to your final, combined stylesheet -->
     <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -24,10 +21,10 @@
         <!-- ===================== LOGIN PAGE ====================== -->
         <!-- ======================================================= -->
         <div id="login-page" class="page active">
-            <div class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('https://wallpapershome.com/images/wallpapers/friends-2560x1440-cat-dog-puppy-kitty-green-grass-sunny-day-cute-pet-721.jpg');">
+            <div class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/a78bfa/ffffff?text=Pawsitively+Perfect');">
                 <div class="w-full max-w-md p-8 space-y-6 bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl shadow-2xl">
                     <div class="text-center">
-                        <i class="fas fa-paw text-4xl text-blue-600"></i>
+                        <i class="fas fa-paw text-4xl text-purple-600"></i>
                         <h1 class="text-3xl font-bold text-gray-900 mt-2">Welcome to Pawsitively Perfect</h1>
                         <p class="text-gray-600 mt-1">Your one-stop pet care companion.</p>
                     </div>
@@ -38,15 +35,15 @@
                         <form id="login-form" class="space-y-6">
                             <div>
                                 <label for="login-email" class="text-sm font-medium text-gray-700">Email</label>
-                                <input id="login-email" type="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="you@example.com">
+                                <input id="login-email" type="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500" placeholder="you@example.com" required>
                             </div>
                             <div>
                                 <label for="login-password" class="text-sm font-medium text-gray-700">Password</label>
-                                <input id="login-password" type="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="••••••••">
+                                <input id="login-password" type="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500" placeholder="••••••••" required>
                             </div>
-                            <button type="submit" class="w-full py-3 px-4 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105">Log In</button>
+                            <button type="submit" class="w-full py-3 px-4 text-white font-semibold bg-purple-600 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-transform transform hover:scale-105">Log In</button>
                             <p class="text-center text-sm text-gray-600">
-                                Don't have an account? <a href="#" id="show-signup" class="font-medium text-blue-600 hover:underline">Sign up</a>
+                                Don't have an account? <a href="#" id="show-signup" class="font-medium text-purple-600 hover:underline">Sign up</a>
                             </p>
                         </form>
 
@@ -54,19 +51,19 @@
                         <form id="signup-form" class="hidden space-y-4">
                             <div>
                                 <label for="signup-name" class="text-sm font-medium text-gray-700">Full Name</label>
-                                <input id="signup-name" type="text" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Piyush Bhandari">
+                                <input id="signup-name" type="text" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500" placeholder="Piyush Bhandari" required>
                             </div>
                             <div>
                                 <label for="signup-email" class="text-sm font-medium text-gray-700">Email</label>
-                                <input id="signup-email" type="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="you@example.com">
+                                <input id="signup-email" type="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500" placeholder="you@example.com" required>
                             </div>
                             <div>
                                 <label for="signup-password" class="text-sm font-medium text-gray-700">Password</label>
-                                <input id="signup-password" type="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Create a password">
+                                <input id="signup-password" type="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500" placeholder="Create a password" required>
                             </div>
                             <button type="submit" class="w-full py-3 px-4 text-white font-semibold bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-105">Create Account</button>
                             <p class="text-center text-sm text-gray-600">
-                                Already have an account? <a href="#" id="show-login" class="font-medium text-blue-600 hover:underline">Log in</a>
+                                Already have an account? <a href="#" id="show-login" class="font-medium text-purple-600 hover:underline">Log in</a>
                             </p>
                         </form>
                     </div>
@@ -74,118 +71,216 @@
             </div>
         </div>
 
-        <!-- ======================================================= -->
-        <!-- =================== DASHBOARD PAGE ==================== -->
-        <!-- ======================================================= -->
-        <div id="dashboard-page" class="page">
+        <!-- This container holds all the pages for a logged-in user -->
+        <div id="main-app-container" class="page">
             <!-- Header -->
-            <header class="bg-white shadow-md sticky top-0 z-10">
+            <header class="bg-white shadow-md sticky top-0 z-20">
                 <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
                     <div class="flex items-center space-x-2">
-                        <i class="fas fa-paw text-2xl text-blue-600"></i>
+                        <i class="fas fa-paw text-2xl text-purple-600"></i>
                         <span class="text-xl font-bold text-gray-800">Pawsitively Perfect</span>
                     </div>
+                    <div class="hidden md:flex items-center space-x-2">
+                        <button data-page="dashboard-page" class="nav-btn px-4 py-2 text-gray-600 font-semibold rounded-lg hover:text-purple-600 hover:bg-purple-50">Dashboard</button>
+                        <button data-page="track-appointment-page" class="nav-btn px-4 py-2 text-gray-600 font-semibold rounded-lg hover:text-purple-600 hover:bg-purple-50">Track Appointment</button>
+                        <button data-page="setup-page" class="nav-btn px-4 py-2 text-gray-600 font-semibold rounded-lg hover:text-purple-600 hover:bg-purple-50">Add Pet</button>
+                        <button data-page="appointment-page" class="nav-btn px-4 py-2 text-gray-600 font-semibold rounded-lg hover:text-purple-600 hover:bg-purple-50">Book Appointment</button>
+                    </div>
                     <div class="flex items-center space-x-4">
-                        <span id="user-greeting" class="text-gray-700"></span>
+                        <span id="user-greeting" class="text-gray-700 hidden md:block"></span>
                         <button id="logout-btn" class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            <i class="fas fa-sign-out-alt md:mr-2"></i><span class="hidden md:inline">Logout</span>
                         </button>
                     </div>
                 </nav>
             </header>
 
-            <!-- Main Content -->
+            <!-- Main Content Area -->
             <main class="container mx-auto px-6 py-8">
-                <div class="flex justify-between items-center mb-8">
-                    <h2 class="text-3xl font-bold text-gray-800">Your Pet Dashboard</h2>
-                    <button id="add-pet-btn" class="flex items-center px-6 py-3 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105 shadow-lg">
-                        <i class="fas fa-plus mr-2"></i> Add New Pet
-                    </button>
+                <!-- ======================================================= -->
+                <!-- =================== DASHBOARD PAGE ==================== -->
+                <!-- ======================================================= -->
+                <div id="dashboard-page" class="main-page active">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Your Pet Dashboard</h2>
+                    <p class="text-gray-600 mb-8">Click on a pet to see more details or manage their profile.</p>
+                    
+                    <div id="pet-profiles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Pet cards will be dynamically inserted here -->
+                    </div>
+                    
+                    <div id="no-pets-placeholder" class="hidden text-center py-16 px-6 bg-white rounded-lg shadow-md">
+                        <img src="https://placehold.co/150x150/DBEAFE/8B5CF6?text=Add+A+Pet!" class="mx-auto rounded-full mb-4" alt="A cute pet icon">
+                        <h3 class="text-2xl font-semibold text-gray-700">No pets yet!</h3>
+                        <p class="text-gray-500 mt-2">Click "Add Pet" in the navigation bar to create a profile for your furry friend.</p>
+                    </div>
                 </div>
 
-                <!-- Pet Profiles Grid -->
-                <div id="pet-profiles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Pet cards will be dynamically inserted here by script.js -->
+                <!-- ======================================================= -->
+                <!-- ============= APPOINTMENT TRACKING PAGE =============== -->
+                <!-- ======================================================= -->
+                <div id="track-appointment-page" class="main-page">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Track Your Appointments</h2>
+                    <p class="text-gray-600 mb-8">Drag and drop appointments to update their status.</p>
+
+                    <div id="appointment-board" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Scheduled Column -->
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h3 class="font-bold text-lg text-blue-800 mb-4 text-center"><i class="fas fa-calendar-check mr-2"></i>Scheduled</h3>
+                            <div id="scheduled-column" class="appointment-column min-h-[200px] space-y-4" data-status="scheduled">
+                                <!-- Appointment cards will be inserted here -->
+                            </div>
+                        </div>
+                        <!-- Ongoing Column -->
+                        <div class="bg-yellow-50 rounded-lg p-4">
+                            <h3 class="font-bold text-lg text-yellow-800 mb-4 text-center"><i class="fas fa-spinner fa-spin mr-2"></i>Ongoing</h3>
+                            <div id="ongoing-column" class="appointment-column min-h-[200px] space-y-4" data-status="ongoing">
+                                <!-- Appointment cards will be inserted here -->
+                            </div>
+                        </div>
+                        <!-- Completed Column -->
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h3 class="font-bold text-lg text-green-800 mb-4 text-center"><i class="fas fa-check-double mr-2"></i>Completed</h3>
+                            <div id="completed-column" class="appointment-column min-h-[200px] space-y-4" data-status="completed">
+                                <!-- Appointment cards will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="no-appointments-placeholder" class="hidden text-center py-16 px-6 bg-white rounded-lg shadow-md mt-8">
+                         <img src="https://placehold.co/150x150/DBEAFE/8B5CF6?text=Book+One!" class="mx-auto rounded-full mb-4" alt="A calendar icon">
+                        <h3 class="text-2xl font-semibold text-gray-700">No appointments yet!</h3>
+                        <p class="text-gray-500 mt-2">Click "Book Appointment" in the navigation bar to schedule a visit.</p>
+                    </div>
                 </div>
-                
-                <!-- Placeholder for when no pets are added -->
-                <div id="no-pets-placeholder" class="hidden text-center py-16 px-6 bg-white rounded-lg shadow-md">
-                     <img src="https://placehold.co/150x150/DBEAFE/3B82F6?text=Add+A+Pet!" class="mx-auto rounded-full mb-4" alt="A cute pet icon">
-                    <h3 class="text-2xl font-semibold text-gray-700">No pets yet!</h3>
-                    <p class="text-gray-500 mt-2">Click "Add New Pet" to create a profile for your furry friend.</p>
+
+                <!-- ======================================================= -->
+                <!-- ================= PET PROFILE PAGE ==================== -->
+                <!-- ======================================================= -->
+                <div id="pet-profile-page" class="main-page">
+                    <!-- Pet profile details will be dynamically inserted here -->
+                </div>
+
+
+                <!-- ======================================================= -->
+                <!-- =================== ADD/EDIT PET PAGE ================= -->
+                <!-- ======================================================= -->
+                <div id="setup-page" class="main-page">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="text-center mb-8">
+                             <h1 id="setup-form-title" class="text-3xl font-bold text-gray-800 mb-2">Create Your Pet Profile</h1>
+                             <p class="text-gray-600">Set up your furry friend's profile with all the important details.</p>
+                        </div>
+
+                        <form id="pet-profile-form" class="bg-white rounded-2xl shadow-xl p-8 space-y-8">
+                            <input type="hidden" id="edit-pet-id">
+                            <div class="text-center">
+                                <div class="relative inline-block">
+                                    <div id="photoPreview" class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center border-4 border-dashed border-gray-300 hover:border-purple-500 transition-colors cursor-pointer">
+                                        <i class="fas fa-plus text-3xl text-gray-400"></i>
+                                    </div>
+                                    <input type="file" id="petPhoto" accept="image/*" class="hidden" />
+                                    <button type="button" onclick="document.getElementById('petPhoto').click()" class="absolute -bottom-2 -right-2 bg-purple-600 text-white rounded-full p-2 hover:bg-purple-700 transition-colors">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">Click to upload your pet's photo</p>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="petName" class="block text-sm font-medium text-gray-700 mb-2">Pet Name *</label>
+                                    <input type="text" id="petName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" placeholder="Enter your pet's name" />
+                                </div>
+                                <div>
+                                    <label for="petType" class="block text-sm font-medium text-gray-700 mb-2">Pet Type *</label>
+                                    <select id="petType" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all">
+                                        <option value="">Select pet type</option>
+                                        <option value="Dog">Dog</option>
+                                        <option value="Cat">Cat</option>
+                                        <option value="Bird">Bird</option>
+                                        <option value="Rabbit">Rabbit</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="breed" class="block text-sm font-medium text-gray-700 mb-2">Breed</label>
+                                    <input type="text" id="breed" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" placeholder="e.g., Golden Retriever" />
+                                </div>
+                                <div>
+                                    <label for="age" class="block text-sm font-medium text-gray-700 mb-2">Age (in years) *</label>
+                                    <input type="number" id="age" required min="0" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" placeholder="e.g., 3" />
+                                </div>
+                            </div>
+                            <div class="flex justify-center pt-6">
+                                <button type="submit" id="setup-form-submit-btn" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center space-x-2">
+                                    <i class="fas fa-check"></i>
+                                    <span>Create Pet Profile</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- ================= APPOINTMENT PAGE ================== -->
+                <!-- ======================================================= -->
+                <div id="appointment-page" class="main-page">
+                     <div class="max-w-6xl w-full bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row transition-transform duration-300 hover:scale-[1.01] mx-auto">
+                        <div class="w-full md:w-1/2 p-8">
+                            <h2 class="text-4xl font-bold text-purple-700 text-center mb-6">🐾 Book Appointment</h2>
+                            <form id="appointmentForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Pet's Name</label>
+                                    <select id="appointment-pet-select" class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 transition" required>
+                                      <option value="">Select your pet</option>
+                                      <!-- Pet options will be dynamically inserted here -->
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Appointment Date & Time</label>
+                                    <input type="datetime-local" id="appointment-datetime" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition" required />
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Reason for Visit</label>
+                                    <select id="appointment-reason" class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 transition" required>
+                                        <option value="">Select category</option>
+                                        <option value="Vaccination">Vaccination</option>
+                                        <option value="Grooming">Grooming</option>
+                                        <option value="Checkup">Checkup</option>
+                                        <option value="Sickness">Sickness</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-2 rounded-lg font-semibold shadow-md transition duration-200 hover:shadow-lg">
+                                    Book Now
+                                </button>
+                            </form>
+                        </div>
+                        <div class="w-full md:w-1/2 flex items-center justify-center p-6 bg-purple-50">
+                            <img src="https://placehold.co/600x600/c084fc/FFFFFF?text=We+Love+Pets" alt="Cute Puppies" class="rounded-xl shadow-lg max-h-[500px] w-full object-cover" />
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
 
-    <!-- ======================================================= -->
-    <!-- ================== ADD/EDIT MODALS ==================== -->
-    <!-- ======================================================= -->
-    <!-- Add Pet Modal -->
-    <div id="add-pet-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg mx-4 modal-content" id="add-modal-content">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Create Pet Profile</h2>
-            <form id="pet-profile-form">
-                <div class="space-y-4">
-                    <div>
-                        <label for="pet-name" class="block text-sm font-medium text-gray-700">Pet's Name</label>
-                        <input type="text" id="pet-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Buddy">
-                    </div>
-                    <div>
-                        <label for="pet-breed" class="block text-sm font-medium text-gray-700">Breed</label>
-                        <input type="text" id="pet-breed" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Golden Retriever">
-                    </div>
-                    <div>
-                        <label for="pet-age" class="block text-sm font-medium text-gray-700">Age (in years)</label>
-                        <input type="number" id="pet-age" required min="0" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., 3">
-                    </div>
-                    <div>
-                        <label for="pet-photo" class="block text-sm font-medium text-gray-700">Photo URL (Optional)</label>
-                        <input type="url" id="pet-photo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="https://example.com/your-pet.jpg">
-                        <p class="text-xs text-gray-500 mt-1">You can add your own image link here. If left blank, a default image will be used.</p>
-                    </div>
-                </div>
-                <div class="mt-8 flex justify-end space-x-4">
-                    <button type="button" class="cancel-btn px-6 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none">Cancel</button>
-                    <button type="submit" class="px-6 py-2 text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none">Save Profile</button>
-                </div>
-            </form>
+    <!-- Success Modal (used for multiple success messages) -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="modal-content bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-3xl text-green-500"></i>
+            </div>
+            <h3 id="success-modal-title" class="text-xl font-semibold text-gray-800 mb-2">Success!</h3>
+            <p id="success-modal-message" class="text-gray-600 mb-6">Your action was completed successfully.</p>
+            <button id="success-modal-close-btn" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                Close
+            </button>
         </div>
     </div>
     
-    <!-- Edit Pet Modal -->
-    <div id="edit-pet-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg mx-4 modal-content" id="edit-modal-content">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Pet Profile</h2>
-            <form id="edit-pet-form">
-                <input type="hidden" id="edit-pet-id">
-                <div class="space-y-4">
-                    <div>
-                        <label for="edit-pet-name" class="block text-sm font-medium text-gray-700">Pet's Name</label>
-                        <input type="text" id="edit-pet-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <div>
-                        <label for="edit-pet-breed" class="block text-sm font-medium text-gray-700">Breed</label>
-                        <input type="text" id="edit-pet-breed" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <div>
-                        <label for="edit-pet-age" class="block text-sm font-medium text-gray-700">Age (in years)</label>
-                        <input type="number" id="edit-pet-age" required min="0" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <div>
-                        <label for="edit-pet-photo" class="block text-sm font-medium text-gray-700">Photo URL (Optional)</label>
-                        <input type="url" id="edit-pet-photo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                </div>
-                <div class="mt-8 flex justify-end space-x-4">
-                    <button type="button" class="cancel-btn px-6 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none">Cancel</button>
-                    <button type="submit" class="px-6 py-2 text-white font-semibold bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none">Update Profile</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Link to your JavaScript file -->
+    <!-- Tailwind CSS - required for the styles to work -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to your final, combined JavaScript file -->
     <script src="./app.js"></script>
 </body>
 </html>
