@@ -1,29 +1,29 @@
-/* This is our custom stylesheet. It works together with Tailwind CSS 
-  to create the final look of our website. We use this file for things 
-  that are tricky to do with Tailwind alone, like animations.
+/* This is the custom stylesheet for Pawsitively Perfect.
+   It works together with Tailwind CSS to create the final look.
+   This file is used for styles that are difficult to achieve with Tailwind alone, like animations.
 */
 
-/* We're using the 'Inter' font for a clean, modern look. 
-   This rule applies it to the entire page. */
+/* We're using the 'Inter' font for a clean, modern look. */
 body {
     font-family: 'Inter', sans-serif;
 }
 
-/* This is the base style for our "pages" (the login screen and the dashboard).
-   By default, we hide them and prepare them for a nice fade-in animation. */
-.page {
+/* This is the base style for our "pages" (the different sections of the app).
+   By default, they are hidden and set up for a fade-in animation. */
+.page, .main-page {
     display: none; /* Hide the page initially */
     animation: fadeIn 0.5s ease-in-out; /* Apply our custom animation */
 }
 
 /* When a page is meant to be visible, we give it the 'active' class,
-   which changes its display from 'none' to 'block'. */
-.page.active {
+   which changes its display property from 'none' to 'block'. */
+.page.active, .main-page.active {
     display: block;
 }
 
-/* This defines our fade-in animation. We're telling the browser to transition
-   the element from being invisible and slightly lower, to fully visible and in place. */
+/* This defines our fade-in animation. 
+   It transitions the element from being invisible and slightly lower, 
+   to fully visible and in its final position. */
 @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -35,7 +35,7 @@ body {
     }
 }
 
-/* Here, we're styling the browser's scrollbar to make it look a bit sleeker
+/* Here, we're styling the browser's scrollbar to make it look sleeker
    and more consistent with our site's design. */
 ::-webkit-scrollbar {
     width: 8px;
@@ -51,10 +51,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Make the handle a bit darker when you hover over it */
+    background: #555; /* Make the handle darker on hover */
 }
 
-/* These styles control the animation for our pop-up forms (modals).
+/* These styles control the animation for our pop-up success modal.
    By default, the modal is slightly scaled down and invisible. */
 .modal-content {
     transform: scale(0.95);
@@ -67,4 +67,21 @@ body {
 .modal-content.active {
     transform: scale(1);
     opacity: 1;
+}
+
+/* Style for the currently active navigation button */
+.nav-btn.active {
+    color: #8B5CF6; /* purple-600 */
+    background-color: #F5F3FF; /* purple-50 */
+}
+
+/* Styles for drag-and-drop functionality on the appointment board */
+.appointment-card.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
+}
+
+.appointment-column.drag-over {
+    border: 2px dashed #8B5CF6; /* purple-600 */
+    background-color: #F5F3FF; /* purple-50 */
 }
