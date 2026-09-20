@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pawsitive — Every tail deserves a happy ending</title>
+    <meta
+      name="description"
+      content="Book appointments, track vaccinations and keep your pet's medical history in one place."
+    />
+
+    <!-- Emoji favicon as a data URI: no extra request, no asset to keep in sync. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"
+    />
+
+    <meta name="theme-color" content="#7c3aed" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#15100c" media="(prefers-color-scheme: dark)" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      /**
+       * Resolve the theme before first paint.
+       *
+       * This is inline and synchronous on purpose. Doing it in React means the
+       * browser paints the light theme first and then repaints dark — a white
+       * flash on every load for dark-mode users. Blocking parse for one
+       * localStorage read is the right trade.
+       *
+       * Wrapped in try/catch because `localStorage` throws outright in a
+       * private window with site data blocked, and a failure here must not stop
+       * the page from booting.
+       */
+      (function () {
+        try {
+          var stored = localStorage.getItem('pawsitive:theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = stored ? stored === 'dark' : prefersDark;
+
+          if (dark) document.documentElement.classList.add('dark');
+          /* Marks the choice as explicit, so the CSS media query defers to it. */
+          if (stored) document.documentElement.setAttribute('data-theme', stored);
+        } catch (error) {
+          /* Fall through to the light theme. */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Keyboard users land here first and can jump past the nav. -->
+    <a
+      href="#main"
+      class="sr-only-focusable fixed left-4 top-4 z-[100] rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-fg shadow-lg"
+    >
+      Skip to main content
+    </a>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

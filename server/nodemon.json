@@ -1,6 +1,0 @@
-{
-  "watch": ["src"],
-  "ext": "js,json",
-  "ignore": ["uploads"],
-  "exec": "node src/server.js"
-}

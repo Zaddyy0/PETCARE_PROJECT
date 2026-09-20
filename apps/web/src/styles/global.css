@@ -1,0 +1,196 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Focus rings.
+   *
+   * `:focus-visible`, never `:focus` — a mouse click should not leave a ring
+   * behind, but a keyboard user must always be able to see where they are.
+   * Tailwind's reset removes the browser default, so if we do not put one back
+   * the app becomes unusable without a mouse.
+   */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  html {
+    @apply antialiased;
+    /* Matched to the sticky header, so an in-page anchor does not land
+       underneath it. */
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-canvas text-content font-sans;
+    /* `dvh` rather than `vh`: on mobile Safari, `100vh` is taller than the
+       visible area, so a full-height layout is always slightly scrolled. */
+    min-height: 100dvh;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings inherit weight from the display scale rather than the browser's
+     bold default, which is heavier than the variable font wants. */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-content;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+  }
+
+  /**
+   * Honour a request for reduced motion.
+   *
+   * Vestibular disorders make large transitions genuinely unpleasant. Framer
+   * Motion is told separately via `useReducedMotion`; this covers CSS
+   * animation. `0.01ms` rather than `0` because some browsers skip
+   * `animationend` entirely at zero, and code waiting on that event hangs.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* A scrollbar that matches the theme instead of the OS. */
+  @supports selector(::-webkit-scrollbar) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--border-strong));
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--text-subtle));
+      background-clip: content-box;
+    }
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+    color: hsl(var(--text));
+  }
+
+  /* Remove the number-input spinners — they are tiny, hard to hit, and every
+     numeric field here has a sensible keyboard path instead. */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  /* Let the browser paint its native date picker in the right theme. */
+  input[type='date'],
+  input[type='datetime-local'],
+  input[type='time'] {
+    color-scheme: light;
+  }
+  .dark input[type='date'],
+  .dark input[type='datetime-local'],
+  .dark input[type='time'] {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  /**
+   * Frosted glass.
+   *
+   * Guarded behind `@supports`, because without backdrop-filter the fallback is
+   * a near-transparent panel with unreadable text on top. The fallback is a
+   * solid surface instead.
+   */
+  .glass {
+    background: hsl(var(--surface) / 0.72);
+    border: 1px solid hsl(var(--border) / 0.8);
+  }
+
+  @supports (backdrop-filter: blur(1px)) {
+    .glass {
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    }
+  }
+
+  /* Gradient text for the wordmark. `background-clip: text` needs the
+     transparent fill or the gradient is hidden behind the glyphs. */
+  .text-gradient {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--violet-600)),
+      hsl(var(--violet-500)) 45%,
+      hsl(var(--coral-500))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dark .text-gradient {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--violet-300)),
+      hsl(var(--violet-400)) 45%,
+      hsl(var(--coral-300))
+    );
+  }
+}
+
+@layer utilities {
+  /**
+   * `text-balance` for headings.
+   *
+   * Stops a two-line heading breaking as five words then one — a real
+   * readability win for the many short headings in this UI.
+   */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Hide a scrollbar while keeping the element scrollable — used on the
+     horizontal tab strips and the mobile chip rows. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Visible only to screen readers. Used for live-region announcements and the
+     skip link. */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}

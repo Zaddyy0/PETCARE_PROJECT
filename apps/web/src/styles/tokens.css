@@ -1,0 +1,282 @@
+/**
+ * Design tokens.
+ *
+ * Two layers, and the separation is the whole point:
+ *
+ *   • A **palette** of raw ramps (`--violet-500`). Nothing in a component ever
+ *     references these directly.
+ *   • **Semantic** tokens (`--surface`, `--text-muted`, `--danger`) that name a
+ *     *role*, not a colour. Components use only these.
+ *
+ * Dark mode then works by redefining one small set of semantic tokens, rather
+ * than by sprinkling `dark:` variants across every component. A component
+ * written against `--surface` is already correct in both themes.
+ *
+ * Colours are stored as bare HSL channels (`262 83% 58%`) rather than finished
+ * colours, so Tailwind can apply its opacity modifier — `bg-primary/10` needs
+ * to interpolate an alpha into the value, which it cannot do with `#7c3aed`.
+ */
+
+:root {
+  /* ====================================================================== */
+  /*  Palette                                                               */
+  /* ====================================================================== */
+
+  /* Violet — the brand. Trustworthy without being cold, which matters for a
+     product that is half medical records and half pet photos. */
+  --violet-50: 250 100% 98%;
+  --violet-100: 251 91% 95%;
+  --violet-200: 251 95% 92%;
+  --violet-300: 252 95% 85%;
+  --violet-400: 255 92% 76%;
+  --violet-500: 258 90% 66%;
+  --violet-600: 262 83% 58%;
+  --violet-700: 263 70% 50%;
+  --violet-800: 263 69% 42%;
+  --violet-900: 264 67% 35%;
+  --violet-950: 261 73% 23%;
+
+  /* Coral — warmth. Used sparingly, for the one action on a screen that
+     matters most. A medical product in pure violet reads as sterile. */
+  --coral-50: 24 100% 97%;
+  --coral-100: 21 100% 94%;
+  --coral-200: 20 100% 88%;
+  --coral-300: 19 100% 79%;
+  --coral-400: 17 100% 68%;
+  --coral-500: 14 96% 60%;
+  --coral-600: 11 88% 53%;
+  --coral-700: 9 79% 44%;
+  --coral-800: 9 71% 37%;
+  --coral-900: 10 65% 32%;
+
+  /* Teal — health and success. Distinct enough from the brand violet that a
+     "completed" badge is not mistaken for a primary action. */
+  --teal-50: 166 76% 97%;
+  --teal-100: 167 85% 89%;
+  --teal-200: 168 84% 78%;
+  --teal-300: 171 77% 64%;
+  --teal-400: 172 66% 50%;
+  --teal-500: 173 80% 40%;
+  --teal-600: 175 84% 32%;
+  --teal-700: 175 77% 26%;
+  --teal-800: 176 69% 22%;
+  --teal-900: 176 61% 19%;
+
+  --amber-50: 48 100% 96%;
+  --amber-100: 48 96% 89%;
+  --amber-200: 48 97% 77%;
+  --amber-300: 46 97% 65%;
+  --amber-400: 43 96% 56%;
+  --amber-500: 38 92% 50%;
+  --amber-600: 32 95% 44%;
+  --amber-700: 26 90% 37%;
+  --amber-800: 23 83% 31%;
+  --amber-900: 22 78% 26%;
+
+  --rose-50: 356 100% 97%;
+  --rose-100: 356 100% 95%;
+  --rose-200: 353 96% 90%;
+  --rose-300: 353 96% 82%;
+  --rose-400: 351 95% 71%;
+  --rose-500: 350 89% 60%;
+  --rose-600: 347 77% 50%;
+  --rose-700: 345 83% 41%;
+  --rose-800: 343 80% 35%;
+  --rose-900: 342 75% 30%;
+
+  --sky-50: 204 100% 97%;
+  --sky-100: 204 94% 94%;
+  --sky-200: 201 94% 86%;
+  --sky-300: 199 95% 74%;
+  --sky-400: 198 93% 60%;
+  --sky-500: 199 89% 48%;
+  --sky-600: 200 98% 39%;
+  --sky-700: 201 96% 32%;
+  --sky-800: 201 90% 27%;
+  --sky-900: 202 80% 24%;
+
+  /* Neutrals with a deliberate warm cast (hue ~30 rather than a cool 220).
+     Pure-cool greys make everything feel like a dashboard; a few degrees of
+     warmth is most of what separates "friendly" from "enterprise". */
+  --sand-50: 40 33% 98%;
+  --sand-100: 36 27% 96%;
+  --sand-150: 34 22% 93%;
+  --sand-200: 32 18% 89%;
+  --sand-300: 30 13% 80%;
+  --sand-400: 28 9% 63%;
+  --sand-500: 27 8% 49%;
+  --sand-600: 27 9% 39%;
+  --sand-700: 28 11% 30%;
+  --sand-800: 28 14% 20%;
+  --sand-850: 27 16% 15%;
+  --sand-900: 27 18% 11%;
+  --sand-950: 26 22% 7%;
+
+  /* ====================================================================== */
+  /*  Semantic tokens — light                                               */
+  /* ====================================================================== */
+
+  /* Layering. `canvas` sits behind everything; `surface` is a card on it;
+     `raised` is a popover above that; `sunken` is an inset well. */
+  --canvas: var(--sand-100);
+  --surface: 0 0% 100%;
+  --surface-raised: 0 0% 100%;
+  --surface-sunken: var(--sand-150);
+  --surface-hover: var(--sand-100);
+
+  --border: var(--sand-200);
+  --border-strong: var(--sand-300);
+
+  --text: var(--sand-900);
+  --text-muted: var(--sand-600);
+  --text-subtle: var(--sand-500);
+  --text-inverse: 0 0% 100%;
+
+  --primary: var(--violet-600);
+  --primary-hover: var(--violet-700);
+  --primary-soft: var(--violet-100);
+  --primary-fg: 0 0% 100%;
+
+  --accent: var(--coral-500);
+  --accent-hover: var(--coral-600);
+  --accent-soft: var(--coral-100);
+  --accent-fg: 0 0% 100%;
+
+  --success: var(--teal-600);
+  --success-soft: var(--teal-100);
+  --success-fg: 0 0% 100%;
+
+  --warning: var(--amber-500);
+  --warning-soft: var(--amber-100);
+  --warning-fg: var(--sand-900);
+
+  --danger: var(--rose-600);
+  --danger-hover: var(--rose-700);
+  --danger-soft: var(--rose-100);
+  --danger-fg: 0 0% 100%;
+
+  --info: var(--sky-600);
+  --info-soft: var(--sky-100);
+  --info-fg: 0 0% 100%;
+
+  --ring: var(--violet-500);
+
+  /* ====================================================================== */
+  /*  Non-colour tokens                                                     */
+  /* ====================================================================== */
+
+  /* A single radius scale, so nothing is rounded by a hand-picked pixel value. */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.125rem;
+  --radius-2xl: 1.5rem;
+
+  /**
+   * Shadows carry a hint of the brand hue rather than pure black.
+   *
+   * A neutral-black shadow over warm neutrals reads as grey and slightly
+   * dirty; tinting it toward the violet makes elevation feel intentional.
+   */
+  --shadow-xs: 0 1px 2px hsl(263 40% 20% / 0.05);
+  --shadow-sm: 0 1px 3px hsl(263 40% 20% / 0.07), 0 1px 2px hsl(263 40% 20% / 0.04);
+  --shadow-md: 0 4px 12px hsl(263 40% 20% / 0.08), 0 2px 4px hsl(263 40% 20% / 0.04);
+  --shadow-lg: 0 12px 28px hsl(263 40% 20% / 0.1), 0 4px 10px hsl(263 40% 20% / 0.05);
+  --shadow-xl: 0 24px 56px hsl(263 40% 20% / 0.14), 0 8px 16px hsl(263 40% 20% / 0.06);
+  --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.14), 0 16px 40px hsl(var(--primary) / 0.18);
+
+  /**
+   * Motion.
+   *
+   * Two durations and two easings, used everywhere. The spring-like
+   * `--ease-out` (a decelerating cubic) is what makes an interaction feel
+   * responsive: things should leave quickly and arrive slowly.
+   */
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 380ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --header-height: 4rem;
+  --sidebar-width: 16rem;
+  --sidebar-width-collapsed: 4.5rem;
+}
+
+/* ======================================================================== */
+/*  Semantic tokens — dark                                                  */
+/*                                                                          */
+/*  Only the semantic layer is redefined. Every component written against    */
+/*  `--surface` and `--text` is already correct here with no extra work.     */
+/* ======================================================================== */
+
+.dark {
+  --canvas: var(--sand-950);
+  /* Dark surfaces are *lighter* than the canvas, inverting the light-mode
+     relationship — elevation in the dark reads as emitted light, not shadow,
+     which no amount of box-shadow can fake on a near-black background. */
+  --surface: var(--sand-900);
+  --surface-raised: var(--sand-850);
+  --surface-sunken: 26 24% 5%;
+  --surface-hover: var(--sand-850);
+
+  --border: 27 14% 18%;
+  --border-strong: 27 12% 26%;
+
+  --text: var(--sand-100);
+  --text-muted: var(--sand-400);
+  --text-subtle: var(--sand-500);
+  --text-inverse: var(--sand-950);
+
+  /* Brand colours shift lighter in the dark: a 600-weight violet on near-black
+     fails contrast, and saturated mid-tones vibrate against dark backgrounds. */
+  --primary: var(--violet-400);
+  --primary-hover: var(--violet-300);
+  --primary-soft: 263 45% 20%;
+  --primary-fg: var(--sand-950);
+
+  --accent: var(--coral-400);
+  --accent-hover: var(--coral-300);
+  --accent-soft: 14 50% 18%;
+  --accent-fg: var(--sand-950);
+
+  --success: var(--teal-400);
+  --success-soft: 175 45% 14%;
+  --success-fg: var(--sand-950);
+
+  --warning: var(--amber-400);
+  --warning-soft: 38 50% 14%;
+  --warning-fg: var(--sand-950);
+
+  --danger: var(--rose-400);
+  --danger-hover: var(--rose-300);
+  --danger-soft: 348 45% 16%;
+  --danger-fg: var(--sand-950);
+
+  --info: var(--sky-400);
+  --info-soft: 200 50% 15%;
+  --info-fg: var(--sand-950);
+
+  --ring: var(--violet-400);
+
+  /* Shadows are nearly invisible on a dark canvas, so they are deepened and
+     lean on the border token for definition instead. */
+  --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.3);
+  --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.4);
+  --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.45);
+  --shadow-lg: 0 12px 28px hsl(0 0% 0% / 0.5);
+  --shadow-xl: 0 24px 56px hsl(0 0% 0% / 0.6);
+  --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.3), 0 16px 40px hsl(var(--primary) / 0.15);
+}
+
+/**
+ * Respect the OS preference when the user has not chosen explicitly.
+ *
+ * Guarded on `:not([data-theme])` so an explicit choice always wins — a user
+ * who picks light mode on a dark-mode machine must get light mode.
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+  }
+}

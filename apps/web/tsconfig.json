@@ -1,0 +1,43 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    /* `Bundler` is correct here, not `NodeNext`: Vite resolves imports, so
+       extensionless specifiers are fine and required `.js` suffixes are not. */
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    "allowImportingTsExtensions": false,
+    "noEmit": true,
+    /* Each file must be independently transpilable — Vite/esbuild compiles one
+       module at a time with no type information from its neighbours. */
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  /**
+   * `src` only — the build configs are deliberately not type-checked here.
+   *
+   * `vitest` (in apps/api) depends on Vite 5 while this app uses Vite 6, so npm
+   * hoists one to the root and nests the other. Both are correct at runtime,
+   * but `tsc` sees two structurally identical `Plugin` types from different
+   * paths and refuses to unify them. The configs are validated by the build
+   * actually running, which is the check that matters for them.
+   */
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+  /**
+   * Deliberately no `references` to `packages/shared`.
+   *
+   * TypeScript build mode requires a referencing project to emit, and this one
+   * cannot — Vite compiles the app, so `tsc` is only ever a type checker here.
+   * The shared package is consumed the ordinary way, through its `dist` and
+   * `.d.ts` in node_modules, which is exactly what the published `exports`
+   * field points at. `npm run build:shared` keeps that output current.
+   */
+}

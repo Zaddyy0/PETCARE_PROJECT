@@ -1,27 +1,48 @@
 {
-  "name": "petcare-project",
+  "name": "pawsitive",
+  "version": "1.0.0",
   "private": true,
+  "description": "Pawsitive — the one-stop pet care platform for clients, doctors, clinics and administrators.",
+  "license": "UNLICENSED",
   "type": "module",
+  "engines": {
+    "node": ">=20.11.0",
+    "npm": ">=10.0.0"
+  },
   "workspaces": [
-    "server"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "start": "vite preview"
-  },
-  "dependencies": {
-    "axios": "^1.8.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.29.0"
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev --workspace @pawsitive/api",
+    "dev:web": "npm run dev --workspace @pawsitive/web",
+    "_comment:build": "Order matters — the API and web app both consume shared's built output, so it must compile first.",
+    "build": "npm run build --workspace @pawsitive/shared && npm run build --workspace @pawsitive/api && npm run build --workspace @pawsitive/web",
+    "build:shared": "npm run build --workspace @pawsitive/shared",
+    "start": "npm run start --workspace @pawsitive/api",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "seed": "npm run seed --workspace @pawsitive/api",
+    "clean": "rimraf \"**/dist\" \"**/node_modules/.cache\" \"**/.turbo\""
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.21",
+    "@eslint/js": "^9.17.0",
     "concurrently": "^9.1.2",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
-    "vite": "^5.4.14"
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.25.12": true
   }
 }

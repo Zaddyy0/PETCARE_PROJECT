@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "rootDir": "./src",
+    "outDir": "./dist"
+    /* Deliberately no `paths` aliases. TypeScript would resolve `@/config` at
+       compile time, but plain `node dist/index.js` would not resolve it at
+       runtime — the build passes and production crashes on first import.
+       Relative imports cost a few `../` and always work. */
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "src/**/*.test.ts"],
+  "references": [{ "path": "../../packages/shared" }]
+}

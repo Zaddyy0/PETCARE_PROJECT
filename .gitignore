@@ -1,9 +1,50 @@
-node_modules
+# Dependencies
+node_modules/
+.npm/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
+# `.env.example` is deliberately tracked — it documents every variable the app
+# needs. The negation must come after the patterns it exempts.
 .env
 .env.*
-dist
-server/dist
-server/uploads/*
-!server/uploads/.gitkeep
+!.env.example
+
+# Test & coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs
+logs/
+*.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Caches
+.cache/
+.turbo/
+.vite/
+.eslintcache
+
+# Local uploads (kept only for the local-disk storage fallback)
+uploads/
